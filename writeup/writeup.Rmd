@@ -8,7 +8,7 @@ output: html_document
 
 *Fuqua School of Business, Duke University*
 
-##1. Justification of the choice 
+##1. Justification of my choice 
 There are very few papers in Psychology Science issues of 2015 relevant to education, I came across only two of them related to my research. Among those two, one was in the lab using a brain imaging method, and the other, although online, was conducted with around 300 undergraduate students. Therefore, given the feasibility constrains of the course project, I decided to deviate more form my own current research and include in my search agenda less directly relevant topics to my research. Not surprisingly, as a girl with Electrical Engineering background, I am interested in gender disparity in science education. Therefore, when I came across a paper about gender bias in attribution of creativity, I found it relevant to my interest and potentially informative for future extension of my research in science education by considering different manifestations of gender disparity. 
 
 ##2. Description of procedure
