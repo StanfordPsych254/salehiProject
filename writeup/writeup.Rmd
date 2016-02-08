@@ -1,0 +1,19 @@
+---
+title: "writeup"
+output: html_document
+---
+**A Gender Bias in the Attribution of Creativity: Archival and Experimental Evidence for the Perceived Association Between Masculinity and Creative Thinking**
+
+**Devon Proudfoot, Aaron C. Kay, and Christy Z. Koval**
+
+*Fuqua School of Business, Duke University*
+
+##1. Justification of my choice 
+There are very few papers in Psychology Science issues of 2015 relevant to education, I came across only two of them related to my research. Among those two, one was in the lab using a brain imaging method, and the other, although online, was conducted with around 300 undergraduate students. Therefore, given the feasibility constrains of the course project, I decided to deviate more form my own current research and include in my search agenda less directly relevant topics to my research. Not surprisingly, as a girl with Electrical Engineering background, I am interested in gender disparity in science education. Therefore, when I came across a paper about gender bias in attribution of creativity, I found it relevant to my interest and potentially informative for future extension of my research in science education by considering different manifestations of gender disparity. 
+
+##2. Description of procedure
+This study have speculated the relation between masculine and feminine characteristics and attribution of creativity. Out of 5 studies, conveniently 2 of them have been conducted on Mturks, the population accessible for the final project. In the first study participants, on a 9-point scale, rated how central 16 characteristics (8 masculine and 8 feminine) are to creativity. Second study had four conditions resulted from a 2x2 design. Participants were presented with materials in fashion designs or architecture designs done by a male or female designer, and they were asked to rate how creative the designs were.
+
+Originally, I am interested in conducting both studies. However, as if ran the two studies in one experimental setting, there might be a contamination effect of first study on the second one. Therefore, if I will not be able to have enough participants to conduct both studies separately in statistically powerful way, I might have to limit the scope of the project to the second study. For the procedure of the second study, I need four sets of stimuli, each including three picture of designs aligned with the info of their designer: 2 sets of architect designs, and 2 sets of fashion designs. The two sets in each pair are identical, except for the name of the designer included in the info; they have either a male or a female name for the designer. Participants need to be randomized between these four conditions, and after being presented with design samples, they should answer a survey about creativity and originality of the presented designs. I need to counterbalance the order of images in each set of stimuli as well as randomizing the sequence of questions in the survey.
+        
+
