@@ -1,0 +1,30 @@
+---
+title: "Creativity Readme"
+output: html_document
+---
+
+
+Here is the mock-up the creativity survey:
+https://web.stanford.edu/~salehi/Creativity/creativity.html
+the rest of related files are also in the 
+https://web.stanford.edu/~salehi/Creativity/
+
+To create this mock-up of the final project, I shamelessly copied the "parenting" project from langcog github account and edited those files. Thanks for the publicity of those materials and sorry for inauthentic reproduction. 
+
+couple of things that I need feedback with this mock-up:
+
+#1. the definition as a separate first page after the instruction page
+
+There are two different definitions for the creativity and participants read one of them randomly before starting the survey.Given my limited expertise in JS, I spent so much time fruitlessly to have the definition in the first page after the instruction page without being shuffled between survey items.After so many failed solutions, the simplest solution I landed on is that I have added a code to show randomly one of the definitions on the instruction page and created a variable called "condition" to save which definitions is shown to a participants.
+
+#2.saving the condition properly
+Given that I defined the "condition" variable to log which of the creativity definitions has been shown to each participant, it is very critical to save the value of the "condition" variable for each participant. I am concerned that I have not done this saving procedure properly. I added the condition variable in the data object in the js file, but I am really concerned if I have done it correctly.
+
+#3. Preview of the saved data
+I do not know how to see the data of a pilot run for the survey after submitting a survey, same as what was done in even-odd and puppy-kitten codes, in order to check if I am saving everything properly. I could not engineer back from those two codes, to figure out why the survey created by me does not give that data preview at the end of completing the survey.
+
+#4.Contacting the original authors
+Last and probably also least, I have to contact the authors to ask for original survey questions they used as it has not been provided either in the paper, or supplementary materials.
+
+Thanks in advance for your feedback and help. I truly appreciate it.
+Shima
