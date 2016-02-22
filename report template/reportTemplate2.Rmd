@@ -1,0 +1,87 @@
+---
+title: "Report template"
+
+				
+# Replication of Study A Gender Bias in the Attribution of Creativity: Archival and Experimental Evidence for the Perceived Association Between Masculinity and Creative Thinking 		
+         by 		
+					
+###Devon Proudfoot, Aaron C. Kay, and Christy Z. Koval 
+				
+###(2015, Psychological Science)
+
+Shima Salehi
+salehi@stanford.edu
+
+##Contacting the authors
+I have contacted the authors and asked for exclusion policy as well as materials for the first study. SHortly, the authors replied in regard of exclusion policy and generously provided the survey of the first study on the Qualtrics platform.
+
+##Introduction
+
+The goal of this study was to examine whether in terms of creativity men and their works would be evaluated differently than women and their works. In other words, whether the judgement of creativity is influenced by the gender of a creator. To test this hypothesis, the authors asked participants to rate creativity of stereotypically masculine characteristics as well as stereotypically feminine characteristics. The researchers compared whether the attribution of creativity varied significantly across gendered characteristics. Furthermore, authors were interested to speculate that given there might be a gender bias for attribution of creativity, this bias could be moderated by how creativity is defined. They used two different definitions for creativity: 1. divergent thinking: thinking outside the box, 2. convergent thinking: bringing pieces together and connecting the dots. They decided on these two definitions, because these definition are aligned with agency and communality divide, which has been associated with masculinity and femininity divide. Therefore, authors pursued whether by defining creativity as a communal and more feminine traits versus. a more agent and masculine trait, they can manipulate the potential gender bias in attribution of creativity.
+
+##Methods
+
+###Power Analysis 
+The power analysis is calculated based on two separate anova analyses the authors have conducted for each of the two creativity definition condition.The effect size of centrality difference is different tow trait types for divergent condition (dd) is 1.25 and the same effect size for the convergent condition (dc) 0.94. Therefore, for convergent condition that dc=0.94 and p-value <0.001 the post-hoc power is 0.986 ~ 0.99. For divergent condition, on the other hand, with dd= 1.25 and same p-value the post-hoc power is 0.999 =1.
+
+###Planned Sample
+As for the divergent condition the power is 1, the planned sample size at the significance level of 0.01 of  will be 20. For convergent condition with the power of 0.99, for the same significance level of 0.01, the sample size will be 28 . Therefore, in total I will need 48 participants. With this sample size, the effect size will be 0.94 for convergent group and 1.21 for divergent group.
+
+##Materials & Procedure
+	
+###Study1:
+
+“Participants were randomly assigned to one of two conditions. Participants in the divergent-thinking condition read a passage describing creativity as the ability to “think outside the box,” see the world differently than the average person does, and create things that do not conform to traditions. Participants in the convergent-thinking condition read that creativity is the ability to “connect the dots,” see the connections between disparate ideas, and create things that bring ideas together in a unique way (see the Supplemental Material for the text used for this manipulation).
+						
+Participants then rated, on a 9-point scale, how central 16 personality traits were to creativity, as described in the passage. Eight of the traits were stereotypically masculine-agentic (decisive, competitive, self-reliant, willing to take risks, ambitious, daring, adventurous, courageous), and 8 were stereotypically feminine-communal (sensi- tive, cooperative, understanding of others, helpful to others, sympathetic, nurturing, warm in relations with others, and supportive; cf. Prentice & Carranza, 2002). An exploratory factor analysis with varimax rotation revealed a two-factor structure. The 8 masculine-agentic traits loaded onto one factor, so ratings of these traits were combined (α = .88). The 8 feminine-communal traits loaded onto the other factor, so ratings of these traits were combined (α = .92).”
+
+
+
+##Analysis Plan
+
+Same as the authors of the original paper, we are going to conduct “a mixed-model ANOVA with condition as the between-subjects factor and trait type as the within-subjects factor”. After that we will conduct two separate ANOVA's for each of the creativity definitions to estimate the effect size of the trait type within each condition. Furthermore, for each group of gendered characteristics, we will compare the average creativity score across conditions. These are the confirmatory analyses. Besides that we will conduct a regression analysis to included all the other variables in rating a centrality of the traits for the creativity. Same as the authors, we are collecting data on age, gender, education, ethnicity, political orientation and income.
+
+Furthermore, I have included a question about the definition of the creativity as well as the purpose of the study to use as a manipulation check for participants' engagement.
+
+##Differences from Original Study
+There is no main planned difference from the original study. There are two minor differences: first, according to the power analysis the sample size will be smaller ; second, instead of showing all the traits in one table the trait will be shown sequentially one at the time.
+
+##Actual Sample
+In the original study, eighty participants (49% female, U.S. residents) were recruited from Amazon Mechanical Turk (see Table S1 in the Supplemental Material for additional demographic information). Demographic variables did not moderate the results. 
+
+
+Differences from pre-data collection methods plan
+None.
+
+##Pilot Samples
+I have conducted a sample survey on the Mturk sandbox, and collected data from four pilot participants. Currently, I am working on extracting data from json format to data frame. I have issue with rectangular data frame that I need  to check with instructors to address. 
+
+
+##Results
+
+###Data preparation
+Turning one json file per participants to one collective data frame with the variable of interest: rating of different traits, condition, gender, age, education, ethnicity, political orientation and income.
+
+Furthermore, I will code the two manipulation check variables: definition of creativity, and the purpose of the study on the binary scale. For definition, 1 means a participant remembered a definition of creativity provided to her. For the purpose variable, 1 means a participants have guess the study goal. These two binary scores named definition and purpose will be added to the data frame.
+
+
+###Confirmatory analysis
+1. Mixed-moded analysis with condition as between subject and trait as within subject.
+
+2. Two ANOVA's for each condition to check the effect size of trait type in each condition
+
+3. Two ANOVA's for each trait to see the effect size of the condition.
+
+###Exploratory analyses
+Any follow-up analyses desired (not required).
+
+1. Regression analysis including the gender and ethnicity of participants (mainly) as well as their income and education (potentially.)
+
+##Discussion
+
+###Summary of Replication Attempt
+Open the discussion section with a paragraph summarizing the primary result from the confirmatory analysis and the assessment of whether it replicated, partially replicated, or failed to replicate the original result.  
+
+###Commentary
+Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
