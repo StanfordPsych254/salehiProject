@@ -3,7 +3,7 @@ title: "Report template"
 
 Note:
 
-Originally, I was planned to replicate both study 1 & 2, out of series of 5 studies in the original paper. However, in a candid moment of self-evaluation, I realized that given my competency in JSS and number of participants I can hire, it might be more pragmatic idea to only focus on the study 1. I appreciate any feedback in this regard.
+Originally, I was planning to replicate both study 1 & 2, out of series of 5 studies in the original paper. However, in a candid moment of self-evaluation, I realized that given my competency in js and the number of participants I can hire, it might be more pragmatic idea to only focus on the study 1. I appreciate any feedback in this regard.
 
 
 
@@ -39,7 +39,7 @@ salehi@stanford.edu
 
 #Introduction
 
-The goal of this study was to examine whether in terms of creativity men and their works would be evaluated differently than women and their works. In other words, whether the judgement of creativity is influenced by the gender of a creator. To test this hypothesis, the authors asked participants to rate creativity of stereotypically masculine characteristics as well as stereotypically feminine characteristics. The researchers compared whether the attribution of creativity varied significantly across gendered characteristics. Furthermore, authors were interested to speculate that given there might be a gender bias for attribution of creativity, this bias could be moderated by how creativity is defined. They used two different definitions for creativity: 1. divergent thinking: thinking outside the box, 2. convergent thinking: bringing pieces together and connecting the dots. They decided on these two definitions, because these definition are aligned with agency and communality divide, which has been associated with masculinity and femininity divide. Therefore, authors pursued whether by defining creativity as a communal and more feminine traits versus. a more agent and masculine trait, they can manipulate the potential gender bias in attributing of creativity.
+The goal of this study was to examine whether in terms of creativity men and their works would be evaluated differently than women and their works. In other words, whether the judgement of creativity is influenced by the gender of a creator. To test this hypothesis, the authors asked participants to rate creativity of stereotypically masculine characteristics as well as stereotypically feminine characteristics. The researchers compared whether the attribution of creativity varied significantly across gendered characteristics. Furthermore, authors were interested to speculate that given there might be a gender bias for attribution of creativity, this bias could be moderated by how creativity is defined. They used two different definitions for creativity: 1. divergent thinking: thinking outside the box, 2. convergent thinking: bringing pieces together and connecting the dots. They decided on these two definitions, because these definition are aligned with agency and communality divide, which has been associated with masculinity and femininity divide. Therefore, authors pursued whether by defining creativity as a communal and more feminine traits versus. a more agent and masculine trait, they can manipulate the potential gender bias in attribution of creativity.
 
 #Methods
 
@@ -66,7 +66,7 @@ Participants then rated, on a 9-point scale, how central 16 personality traits w
 Study1:
 Same as the authors of original paper, we are going to conduct “a mixed-model ANOVA with condition as the between-subjects factor and trait type as the within-subjects factor”. After that we will conduct a series of follow up tests to confirm the main effects as well as interaction. For both conditions separately, we will compare the average creativity score across gendered characteristics. Furthermore, for each group of gendered characteristics, we will compare the average creativity score across conditions.
 
-#Study 2:
+Study 2:
 	Same as the authors of original paper, we will “ conduct a 2 (target’s gender: male vs. female) × 2 (domain: architecture vs. fashion design) between- subjects ANOVA with creativity ratings as the dependent measure to examine whether the male target was judged as more creative than the female target, and whether domain moderated this effect.” To further examine we will conduct another ANOVA test controlling for perceived competency of a designer.	
 
 Differences from Original Study
