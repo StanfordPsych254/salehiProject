@@ -1,19 +1,13 @@
 ---
-title: 'Replication of Study A Gender Bias in the Attribution of Creativity: Archival and Experimental Evidence for the Perceived Association Between Masculinity and Creative Thinking, Proudfoot et al (2015)'
-author: 
+title: 'A Replication Study of a Gender Bias in the Attribution of Creativity: Archival and Experimental Evidence for the Perceived Association Between Masculinity and Creative Thinking, by Proudfoot et al'
+author: "Shima Salehi (salehi@stanford.edu)"
 date: "2015, Psychological Science"
 output: 
   html_document:
     toc: true
 ---
 
-by 		
-					
-Shima Salehi
-salehi@stanford.edu
-
-Original experiment is [here](https://stanford.edu/~salehi/salehiProject/mockup5/creativity.html).
-
+Original experiment is [here](https://stanford.edu/~salehi/salehiProject/Experiment1/creativity.html).
 
 
 #Introduction
@@ -23,20 +17,22 @@ The goal of this study was to examine whether in terms of creativity men and the
 #Methods
 
 ##Power Analysis 
-I changed my power analysis as I realized I had not conducted it properly, and I had not considered the trait type as a between-subject factor in my analyses. Considering this within-subject design, the previous anova's that I based my power analysis on were all repeated measure anova's and I do not have the data of measurements' correlation to calculate the power of repeated measure anova. Therefore, I based my analysis on the only one-way anova the authors have reported in the paper: The difference of rating for the masculine traits across divergent and convergent conditions:
+
+The authors conducted a one-way ANOVA on the rating of masculine traits and they found a significant effect of condition on the ratings of masculine traits: 
 
 > The masculine traits were perceived as more central to creativity when divergence was emphasized, rather than convergence, F(1, 78) = 10.21, p = .002, d = 0.71. 
 
-They have reported Cohen's d, but we need f effect size for calculating power in 'G*Power' software . I transformed reported Cohen's d to f effect size; and for d=0.71, equivalent f became 0.34. Therefore, with p=0.002, total sample size of 80, and two groups the power was calculated as 0.44. 
+Using the above information, I conducted a post-hoc power analysis based on cohen'd and sample size. At the significance level of 0.05, for a t.test with 79 degrees of freedom and the effect size of 0.71, the post-hoc power is 0.88.
+
 
 #Planned Sample
-To detect the f effect size of 0.34 at the significance level of 0.05 with the power of 0.8, I will need 70 participants.
 
-To be able to detect this effect at the significance level of 0.01 with the power of 0.8, I will need 106 participants.
+To detect the Cohen's d effect size of 0.71 at the power of 0.8,66 participants are needed. However, it should be mentioned that this is the effect size of a sub-set of analyses and the effect size of the main mixed-model ANOVA might be below 0.71. Therefore, to assure that the replication study would not be underpowered, the replication will be conducted with 80 participants - the sample size used in the original study.
 
 #Materials & Procedure
 	
 ##Study1:
+
 > Participants were randomly assigned to one of two conditions. Participants in the divergent-thinking condition read a passage describing creativity as the ability to “think outside the box,” see the world differently than the average person does, and create things that do not conform to traditions. Participants in the convergent-thinking condition read that creativity is the ability to “connect the dots,” see the connections between disparate ideas, and create things that bring ideas together in a unique way (see the Supplemental Material for the text used for this manipulation).
 						
 > Participants then rated, on a 9-point scale, how central 16 personality traits were to creativity, as described in the passage. Eight of the traits were stereotypically masculine-agentic (decisive, competitive, self-reliant, willing to take risks, ambitious, daring, adventurous, courageous), and 8 were stereotypically feminine-communal (sensi- tive, cooperative, understanding of others, helpful to others, sympathetic, nurturing, warm in relations with others, and supportive; cf. Prentice & Carranza, 2002). An exploratory factor analysis with varimax rotation revealed a two-factor structure. The 8 masculine-agentic traits loaded onto one factor, so ratings of these traits were combined (α = .88). The 8 feminine-communal traits loaded onto the other factor, so ratings of these traits were combined (α = .92).
@@ -44,14 +40,21 @@ To be able to detect this effect at the significance level of 0.01 with the powe
 #Analysis Plan
 
 Same as the authors of the original paper, I am going to conduct 
-> “a mixed-model ANOVA with condition as the between-subjects factor and trait type as the within-subjects factor”. 
+> “a mixed-model ANOVA with condition as the between-subjects factor and trait type as the within-subjects factor” (confirmatory analysis 1). 
 
-After that I will conduct two separate repeated measure ANOVA's for each of the creativity definitions to estimate the effect size of the trait type within each condition. Furthermore, for each group of gendered characteristics, I will compare the average creativity score across conditions. These are the confirmatory analyses. In addition to these, I will conduct some exploratory analyses. I will conduct regression analyses to include other theoretically meaningful variables - ethnicity, education, and gender of participants- in analyzing the centrality rating of the traits for the creativity. Same as the authors, we are collecting data on age, gender, education, ethnicity, political orientation and income.
+After that I will conduct two separate repeated measure ANOVA's for each of the creativity definition conditions to examine the effect size of the trait type within each condition (confirmatory analysis 2).This analyses is to examine whether within each condition participants perceived feminine and masculine trait type associated to creativity differently. 
+
+Furthermore, I will conduct two one-way ANOVA's for each group of gendered characteristics to compare the average creativity score across conditions(confirmatory analysis 3). This analyses will examine whether for each trait type, changes in the definition of creativity would affect how participants find those traits associated to creativity.
+
+In addition to these three confirmatory analyses, I will conduct some exploratory analyses. I will conduct mixed effect regression model analyses to include other theoretically meaningful variables - ethnicity, education, and gender of participants- in analyzing the participants' rating of traits. Same as the authors, we are collecting data on age, gender, education, ethnicity, political orientation and income.
+
 
 #Differences from Original Study
-There is no main planned difference from the original study. There are two minor differences: first, according to the power analysis the sample size will be smaller; second, instead of showing all the traits on one single page, the traits will be shown sequentially one at the time.
+
+There is no main planned difference from the original study. There are one minor differences: instead of showing all the traits on one single page, the traits will be shown sequentially one at the time.
 
 #Actual Sample
+
 > In the original study, eighty participants (49% female, U.S. residents) were recruited from Amazon Mechanical Turk. Demographic variables did not moderate the results. 
 
 
@@ -68,9 +71,11 @@ For pilot A, I conducted the survey on the Mturk sandbox website, and collected 
 
 Data preparation
 =================================
-Turning json files per participants to one collective data frame with the variables of interest: rating of different traits, condition, gender, age, education, ethnicity, political orientation and income.
+
+Turning .json files per participants to one collective data frame with the variables of interest: rating of different traits, condition, gender, age, education, ethnicity, political orientation and income.
 
 #### Loading Libraries
+
 ```{r message=F, warning=F}
 rm(list=ls())
 library(tidyr, warn.conflicts = FALSE, quietly=TRUE)
@@ -91,16 +96,19 @@ sem <- function(x) {sd(x, na.rm=TRUE) / sqrt(length(x))}
 ci95 <- function(x) {sem(x) * 1.96}
 ```
 
-####Transforming data from JSON format to dataframe
-reading the JSON files and transform them to one dataframe.
+
 ```{r message=F, warning=F}
 #Reading the path
-path <- "~/Documents/Git/Mturk2/"
+path <- "~/Documents/Mturk2/"
 files <- dir(paste0(path,"production-results/"), 
              pattern = "*.json")
 d.b <- data.frame()
+```
 
-#reading the json files and turning them to one data.frame
+####Transforming data from JSON format to dataframe
+
+```{r message=F, warning=F}
+#reading the json files and turning them into one data.frame
 for (f in files) {
   jf <- paste0(path, "production-results/",f)
   jd <- fromJSON(paste(readLines(jf), collapse=""))
@@ -120,63 +128,78 @@ for (f in files) {
                     aim=jd$answers$data$expt_aim)
   d.b <- bind_rows(d.b, id)
 }
-
 # Number of participants
 length(unique(d.b$workerid))
 ```
 
 ####Categorizing Traits into "Masculine" and "Feminine"
-To be able to test the effect of trait type (either masculine or feminine), in the following a categorical variable of 'traitType' has been defined with two levels of masculine and feminine.
+
+To be able to test the effect of trait type (either masculine or feminine), in the following, a categorical variable of 'traitType' has been defined with two levels of 'Masculine' and 'Feminine'.
+
+Furthermore, other variables have been reformatted properly for analyses.
 ```{r trait type variable}
+#sanity check: copying the dataframe and applying the reformating in the copied version
 d.b2 <- d.b
+
+#reformating the data
 d.b2 <- d.b2 %>%
-#creating a bolean varible for traits: for masculine traits the variable is true otherwise it is false  
+#creating a bolean variable for traits: for masculine traits the variable is true otherwise it is false  
 mutate(trait = sentence %in% c('Decisive', 'Competitive', 'Self-reliant',   'Willing to take risks' , 'Ambitious', 'Daring' ,
 'Adventurous' , 'Courageous')) %>% 
-#Changing it to categorical variable  
-mutate(traitType = as.factor(ifelse(trait == TRUE, "Masculine", "Feminine"))) %>% 
-#Creating a categorical variable for condition 
+  
+#changing it to categorical variable  
+mutate(traitType = as.factor(ifelse(trait == TRUE, "Masculine", "Feminine"))) %>%
+  
+#creating a categorical variable for condition 
 mutate(condition = as.factor(condition)) %>% 
-#Creating a categorical variable for gender 
+  
+#creating a categorical variable for gender 
 mutate(genderF = as.factor(gender)) %>%
-#Creating a linear continous variable for education
+  
+#creating a linear continous variable for education
 mutate(educationL = as.numeric(factor(education, levels=c("someMiddleSchool" ,
           "someHighSchool", "highSchoolDrad","someCollege","collegeGraduate","someGrad","Grad")))) %>%
-#Creating a categorical variable for education  
+  
+#creating a categorical variable for education  
 mutate(educationF = as.factor(education)) %>% 
-#Creating a categorical variable for age  
+  
+#creating a categorical variable for age  
 mutate(ageF = as.factor(age)) %>%
-#Creating a linear continous variable for age  
+  
+#creating a linear continous variable for age  
 mutate(ageL = as.numeric(factor(age, levels=c("0-17","18-24", "25-34","35-44","45-64","&gt;65")))) %>%
-#Creating a categorical variable for aethnicity   
+  
+#creating a categorical variable for aethnicity   
 mutate(ethnicityF = as.factor(ethnicity)) %>%
-#Creating a linear continous variable for income   
+  
+#creating a linear continous variable for income   
 mutate(incomeL = as.numeric(factor(income, levels=c("LessThan15000" , "15000-24999", "25000-34999","35000-49999","50000-74999","75000-99999","100000-149999","150000-199999","morethan200000")))) %>%
-#Creating a categorical variable for income   
+  
+#creating a categorical variable for income   
 mutate(incomeF = as.factor(income)) %>%
-#Creating a linear continous variable for political orientation    
+  
+#creating a linear continous variable for political orientation    
 mutate(politicalL = as.numeric(political)) %>%
-#Creating a categorical variable for political orientation    
+  
+#creating a categorical variable for political orientation    
 mutate(politicalL = as.factor(political)) 
-
 ```
 
 ####Histogram of ratings across conditions and trait types
-```{r histograms}
+
+```{r message=F, warning=F}
 #rating vs. condition and traits
-
-qplot(rating, data = d.b2, binwidth= 1, fill= traitType, facets = traitType ~ condition, geom = "histogram") +  scale_fill_manual(values=c("#FF6633", "#33CCCC")) +xlim(c(1,10))
-#rating vs. condition and definition.test
-#qplot(rating, data = d.b2, binwidth= 1, fill= traitType, facets = definitionTest ~ condition, geom = "histogram") +  scale_fill_manual(values=c("#FF6633", "#33CCCC")) +xlim(c(1,10))
-
-#rating vs. condition and definition.test
-#qplot(rating, data = d.b2, binwidth= 1, fill= traitType, facets = aimTest ~ condition, geom = "histogram") +  scale_fill_manual(values=c("#FF6633", "#33CCCC")) +xlim(c(1,10))
-
-# the two histogram for manipulation check would stop knitting process, as there is NA, and there is no participants for one level of each variables in this sample.
-
+qplot(rating, data = d.b2, binwidth= 1, fill= traitType, facets = traitType ~ condition, geom = "histogram") +  
+scale_fill_manual(values=c("#FF6633", "#33CCCC")) +
+xlim(c(1,10)) +
+xlab("Condition") +
+ylab("Rating") +
+ggtitle("Rating Across Conditions & Trait Types") + 
+theme(plot.title = element_text(lineheight=.8, face="bold"))
 ```
 
 #### The rating distribution across conditions
+
 ```{r ratings of trattypes across condition}
   d.b2 %>%
   ggplot(., aes(x = condition, y = rating, col = traitType)) + 
@@ -186,57 +209,58 @@ qplot(rating, data = d.b2, binwidth= 1, fill= traitType, facets = traitType ~ co
   ylab("Rating") +
   ggtitle("Trait Rating Across Conditions") + 
   theme(plot.title = element_text(lineheight=.8, face="bold"))
-
 ```
 
+This plot suggests that compared to the convergent condition, for the divergent condition masculine traits have been rated on average higher and feminine traits on average lower.
 
-This plot suggest that all ratings have slightly shifted downward slightly in the convergent type, regardless of a trait type. This pattern was hinted also in the original paper.
+#### Grouping and summarizing ratings across conditions and trait types
 
-#### Grouping and summarizing rating across conditions and trait types
 In the following, the mean and standard error or rating has been calculated across condition and trait types.
 
 ```{r summarizing the data}
 #including trait type and condition in grouping
 ms1 <- d.b2 %>%
   group_by(condition, traitType) %>%
-  summarize(mean = mean(rating), se =sem(rating))
-
+  summarize(mean = mean(rating), ci95 =ci95(rating))
 ```
-This data has been plotted in the follwoing graph.
 
-#### Plot of average rating: The original paper graph
+This data has been plotted in the following graph. This is the graph also presented in the original paper.
+
+#### Plot of average ratings: The original paper graph
+
 ```{r ggplot condition}
   ms1 %>% ggplot(., aes(x = condition,y = mean,fill = traitType)) +  
   geom_bar(position = 'dodge',stat ='identity', width = 0.5) + 
-  geom_errorbar(aes(ymin = mean-se, ymax = mean+se),
+  geom_errorbar(aes(ymin = mean-ci95, ymax = mean+ci95),
                   width = .2,                    # Width of the error bars
                   position = position_dodge(0.5)) + 
-                  scale_fill_manual(values=c("#FF6633", "#33CCCC"))+
+                  scale_fill_manual(values=c("#FF6633", "#33CCCC")) +
   ylab("Average Rating") + 
   xlab("Condition") +
   ggtitle("Average Trait Rating Across Conditions") + 
-  theme(plot.title = element_text(lineheight=.8, face="bold"))
-  ggtitle ("Rating of Trait Centrality to Creativity across Conditions") +
+  theme(plot.title = element_text(lineheight=.8, face="bold"),legend.title = element_text(colour="Trait Type", size=16, face="bold")) +
   theme_bw() 
 ```
 
 Data Analyses
 =================================
+
 ##I. Confirmatory analysis
 
 ### Confirmatory analysis 1: Mixed-moded analysis between conditions
 
-In the following we have reported, mean and standard error for rating of different trait types across the two conditions. We observe that there is more pronounced difference between the rating for the two trait types in the divergent condition; masculine triats have been rated almost twice more central to creativity than feminine traits. For the convergent conditionthere is not much difference between the rating of two trait types and they both been rated higher than feminine traites in the divergent condition and lower than the masculine condition in the divergent condition.
+In the following, the means and 95% confidence intervals for ratings of different trait types across the two conditions have been reported. There is a more pronounced difference between the two rating types in the divergent condition; masculine traits have been rated almost twice more central to creativity than feminine traits. For the convergent condition, there is not much difference between the ratings of two trait types and they both have been rated higher than feminine traits in the divergent condition and lower than the masculine condition in the divergent condition.
 
-#### Descriptive statistics: mean and se across conditions & trait types
-```{r mean and standard deviation of rating across trait types and condition}
+#### Descriptive statistics: means and ci's across conditions & trait types
+
+```{r mean and 95 ci of ratings across trait types and conditions}
 ms1
 ```
 
-According to the analyses in the original paper, the authors have conducted a mixed-mode ANOVA with condition as a between-subject factor and trait types as  a within-subject factor. This analyses examine whether different traits are perceived to have different centrality to creativity and whether the condition could affect this pattern.
+For the original study, the authors have conducted a mixed-mode ANOVA with condition as a between-subject factor and trait type as a within-subject factor. This analysis examines whether different traits are perceived to have different centrality to creativity and whether the condition could affect this pattern.
 
 ```{r mixed model Anova: Main analyses}
-# Mixed mode ANOVA with one between subject factor of condition and one within subject factor if trait type 
+# Mixed mode ANOVA with one between-subject factor of condition and one within-subject factor of trait type 
 # One Within Factors W1, One Between Factors B1  
 # fit <- aov(y~(W1*B1)+Error(Subject/(W1))+(B1),
 fitConTrait <- aov(rating~(traitType*condition)+Error(workerid/(traitType))+(condition),data=d.b2)
@@ -246,32 +270,40 @@ summary(fitConTrait)
 #calculated eta.suared for trait=34.17/(58.59+34.17+10.86)=0.33
 ```
 
-Besides the above mixed-model anova, to confirm the findings, the authors have conducted two sets of follow-up tests: first, two repeated measure ANOVA's within each condition to test the difference of rating for each trait type within  each condition; and second, two one-way ANOVA's for each triat type acorss conditions to test the effect of condition on the rating of a particular trait type (i.e masculine or feminine). These follow-up tests have been repeated in the following.
+Besides the above mixed-model ANOVA, to confirm the findings, the authors have conducted two sets of follow-up tests: first, two repeated-measure ANOVA's within each condition to test the difference of rating for each trait type within each condition; and second, two one-way ANOVA's for each trait type across conditions to test the effect of condition on the rating of a particular trait type (i.e masculine or feminine). These follow-up tests have been repeated in the following.
 
-### Confirmatory analysis 2: Repeated measure anova for each condition 
+### Confirmatory analysis 2: Repeated measure anova for each condition
+
 The authors have conducted a repeated measure ANOVA to compare the rating for masculine versus feminine traits within the divergent condition. We have repeated the same analysis in the following:
 
 #### Confirmatory analysis 2.1:Different trait types rating within the divergent condition
+
 ```{r Confirmatory analysis 2.1: trait type rating within the divergent condition }
+#filtering divergent condition data points
+divergent <- d.b2 %>% filter(condition == 'Divergent') 
 #effect of trait types in Divergent condition: Within-subject anova
 # One Within Factor: fit <- aov(y~A+Error(Subject/A),data=mydataframe)
-divergent <- d.b2 %>% filter(condition == 'Divergent') 
 fitDivergent <- aov(rating ~ traitType + Error(workerid/traitType), data=divergent)
 summary(fitDivergent)
+
 #effect size
 divergentMasculine <- divergent %>% filter(traitType == 'Masculine')
 divergentFeminine <- divergent %>% filter(traitType == 'Feminine')
 cohen.d(divergentMasculine$rating,divergentFeminine$rating)
 ```
-Same as the divergent condition, for the convergent condition, the authors  have conducted a repeated measure ANOVA to compare the rating for masculine versus feminine traits. This analysis for the replicated data have been reported in the following:
+
+Same as the divergent condition, for the convergent condition, the authors have conducted a repeated measure ANOVA to compare the rating for masculine versus feminine traits. This analysis for the replicated data has been reported in the following:
 
 #### Confirmatory analysis 2.2: Different trait types rating within the convergent condition
+
 ```{r Confirmatory analysis 2.2:trait type rating within the convergent condition}
+#filtering convergent condition data points
+convergent <- d.b2 %>% filter(condition == 'Convergent') 
 #effect of trait types in Divergent condition: Within-subject anova
 # One Within Factor: fit <- aov(y~A+Error(Subject/A),data=mydataframe)
-convergent <- d.b2 %>% filter(condition == 'Convergent') 
 fitConvergent <- aov(rating ~ traitType + Error(workerid/traitType), data=convergent)
 summary(fitConvergent)
+
 #effect size
 convergentMasculine <- convergent %>% filter(traitType == 'Masculine')
 convergentFeminine <- convergent %>% filter(traitType == 'Feminine')
@@ -279,26 +311,33 @@ cohen.d(convergentMasculine$rating,convergentFeminine $rating)
 ```
 
 ### Confirmatory analysis 3: One-way anova for each trait type 
-Besides looking at the variations of trait types' rating within each condition, the authors have examined the effect of condition on rating of each trait type.To do so they have run two one way ANOVA's for each trait type to check the effect of condition on rating of a trait type.
 
-To compare, if the changes in the definition of creativity affect how central participants perceive masculine trait to the creativity, they conducted one-way anova on masculine trait type over condition. The same analyses for the replicated data has been reported in the following.
+Besides looking at the variations of trait types' rating within each condition, the authors have examined the effect of condition on rating of each trait type.To do so they have run two one-way ANOVA's for each trait type to check the effect of condition on the rating of a trait type.
+
+To test whether the changes in the definition of creativity affect how central participants perceive masculine traits to the creativity, they have conducted one-way ANOVA on masculine traits over condition. The same analyses for the replicated data has been reported in the following.
 
 #### Confirmatory analysis 3.1: The masculine trait type rating across conditions
+
 ```{r Confirmatory analysis 3.1: The masculine trait type rating across conditions}
+#filtering masculine traits data points
 masculine <- d.b2 %>% filter(traitType == 'Masculine')
 fitMasculine2 <- aov(rating ~ condition, data = masculine)
 summary(fitMasculine2)
+
 #effect size
 cohen.d(divergentMasculine$rating, convergentMasculine$rating)
 ```
 
-The authors checked if the changes in the creativity definistion influence how central participants perceive feminine traits to creativity. to do so, Same as for masculine trait type, the authors conducted one-way ANOVA of feminine trait type rating over condition. This analysis for the replicated data have been reported here:
+The authors checked if the changes in the creativity definition influence how central participants perceive feminine traits to creativity. to do so, Same as for masculine trait type, the authors conducted one-way ANOVA of feminine trait type rating over condition. This analysis for the replicated data have been reported here:
 
 #### Confirmatory analysis 3.2: The feminine trait type rating across conditions
+
 ```{r Confirmatory analysis 3.2: The mfeminine trait type rating across conditions}
+#Filtering feminine traits data points
 feminine <- d.b2 %>% filter(traitType == 'Feminine')
 fitFeminine <- aov(rating ~ condition, data = feminine)
 summary(fitFeminine)
+
 # effect size
 cohen.d(divergentFeminine$rating, convergentFeminine$rating)
 ```
@@ -307,52 +346,54 @@ cohen.d(divergentFeminine$rating, convergentFeminine$rating)
 ##II. Exploratory analyses: mixed-model regression
 
 
-### Exploratory analyses 1: Repeating mixed-model anova analyses using mixed effect regression
-*** 1.Regression analysis including the gender and ethnicity of participants (mainly) as well as their income and education (potentially.)
+### Exploratory analyses 1: Repeating mixed-model anova analysis using mixed-effect regression
 
-I repeate the mixed-model ANOVA analysis, using mixed-effect regression model. To do so, I include a randome intercept for each subject as well as a random effect of trait type as each subject rated both trait types:
+
+In the following the mixed-model ANOVA analysis has been repeated using a mixed-effect regression model. To do so, I include a random intercept for each subject as well as a random effect of trait type as each subject rated both the trait types:
 
 ```{r lmer basic}
-#model with trait type and condition only
+#mixed-effect model with trait type and condition only
 model1 <- lmer(rating ~ traitType * condition + (1 +traitType | workerid), data=d.b2)
+#printing out the table of fixed-effect results
 kable(summary(model1)$coef)
 ```
 
-I would also like to include eduction, ethnicity, and gender of participants in my analyses to control for their potential effects on how participants evaluate the centrality of a trait to creativity. It might be the case that definition of creativity is gendered to different extent for female and male participants. Also, level of education might influence how participants perceive creativity. Furthermore, different ethnicity with different culture might have different definition for creativity. It might not be surprising that participants with collectivist cultures see creativity more aligned with communal i.e feminine traits.
-
+I would also like to include eduction, ethnicity, and gender of participants in my analyses to control for their potential effects on how participants evaluate the centrality of a trait to creativity. It might be the case that the definition of creativity is gendered to different extent for female and male participants. Also, level of education might influence how participants perceive creativity. Furthermore, different ethnicity with different cultures might have different definition for creativity. It might not be surprising that participants with collectivist cultures see creativity more aligned with communal i.e feminine traits.
 
 ### Exploratory analyses 2: Gender effect 
 
 ```{r Exploratory analyses 2: Gender effect}
 #model with trait type and condition + gender
 model2 <- lmer(rating ~ traitType * condition + gender + (1 +traitType | workerid), data=d.b2)
-summary(model2)
+#printing out the table of fixed-effect results
 kable(summary(model2)$coef)
 ```
 
 ### Exploratory analyses 3: Gender & education effects
+
 ```{r Exploratory analyses 3: Gender & education effects}
 #model with trait type and condition + gender + education
 model3 <- lmer(rating ~ traitType * condition + gender + educationL+ (1 + traitType | workerid), data=d.b2)
-summary(model3)
+#printing out the table of fixed-effect results
 kable(summary(model3)$coef)
 ```
 
 ### Exploratory analyses 4: Gender, education & ethnicity effects
+
 ```{r Exploratory analyses 3: Gender, education & ethnicity effects}
 #model with trait type and condition + gender + education + ethnicity
 model4 <- lmer(rating~ traitType * condition + gender + educationL+ ethnicityF+ (1 +traitType | workerid), data=d.b2)
-summary(model4)
+#printing out the table of fixed-effect results
 kable(summary(model4)$coef)
 ```
 
 #Discussion
 
-##Summary of Replication Attempt
+##I. Summary of Replication Attempt
 
-##Commentary
-None could be added in this version. As it was not possible to fully conduct the exploratory analyses.
+##II. Commentary
+
 
 #Contacting the authors
 
-I have contacted the authors asking for the exclusion policy as well as their materials for the first study. Shortly, the authors replied in regard of exclusion policy and generously provided the survey of the first study on the Qualtrics platform. In the original study, they used no exclusion policy.
+I have contacted the authors asking for the exclusion policy as well as their materials for the first study. Shortly, the authors replied in regard of exclusion policy and generously provided the survey of the first study on the Qualtrics platform. In the original study, there was no participants being excluded.
