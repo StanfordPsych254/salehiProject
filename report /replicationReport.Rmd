@@ -27,7 +27,7 @@ Using the above information, I conducted a post-hoc power analysis based on cohe
 
 #Planned Sample
 
-To detect the Cohen's d effect size of 0.71 at the power of 0.8,66 participants are needed. However, it should be mentioned that this is the effect size of a sub-set of analyses and the effect size of the main mixed-model ANOVA might be below 0.71. Therefore, to assure that the replication study would not be underpowered, the replication will be conducted with 80 participants - the sample size used in the original study.
+To detect the Cohen's d effect size of 0.71 at the power of 0.8,66 participants are needed. However, it should be mentioned that this is the effect size of a sub-set of analyses and the effect size of the main mixed-model ANOVA might be below 0.71. Therefore, to assure that the replication study would not be underpowered, the replication will be conducted with 80 participants - the sample size used in the original study. Furthermore, for the potential necessarily exclusion of participants we include 5% margin as well,so the run sample size is going to be 84.
 
 #Materials & Procedure
 	
