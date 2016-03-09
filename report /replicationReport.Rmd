@@ -40,6 +40,7 @@ To detect the Cohen's d effect size of 0.71 at the power of 0.8,66 participants 
 #Analysis Plan
 
 Same as the authors of the original paper, I am going to conduct 
+
 > “a mixed-model ANOVA with condition as the between-subjects factor and trait type as the within-subjects factor” (confirmatory analysis 1). 
 
 After that I will conduct two separate repeated measure ANOVA's for each of the creativity definition conditions to examine the effect size of the trait type within each condition (confirmatory analysis 2).This analyses is to examine whether within each condition participants perceived feminine and masculine trait type associated to creativity differently. 
@@ -91,6 +92,9 @@ library(lme4, warn.conflicts = FALSE, quietly=TRUE)
 library(lsr, warn.conflicts = FALSE, quietly=TRUE)
 library(xlsx, warn.conflicts = FALSE, quietly=TRUE)
 library(knitr, warn.conflicts = FALSE, quietly=TRUE)
+library(png, warn.conflicts = FALSE, quietly=TRUE)
+library(grid, warn.conflicts = FALSE, quietly=TRUE)
+library(lmtest, warn.conflicts = FALSE, quietly=TRUE)
 #functions for se and CI
 sem <- function(x) {sd(x, na.rm=TRUE) / sqrt(length(x))}
 ci95 <- function(x) {sem(x) * 1.96}
@@ -146,12 +150,14 @@ d.b2 <- d.b2 %>%
 #creating a bolean variable for traits: for masculine traits the variable is true otherwise it is false  
 mutate(trait = sentence %in% c('Decisive', 'Competitive', 'Self-reliant',   'Willing to take risks' , 'Ambitious', 'Daring' ,
 'Adventurous' , 'Courageous')) %>% 
-  
+
 #changing it to categorical variable  
-mutate(traitType = as.factor(ifelse(trait == TRUE, "Masculine", "Feminine"))) %>%
-  
+mutate(traitType = factor(ifelse(trait == TRUE, "Masculine", "Feminine"), levels=c("Masculine","Feminine"))) %>%
+
+#including the trait themselves 
+mutate(trait=factor(sentence))  %>%  
 #creating a categorical variable for condition 
-mutate(condition = as.factor(condition)) %>% 
+mutate(condition = factor(condition,levels=c("Divergent","Convergent"))) %>% 
   
 #creating a categorical variable for gender 
 mutate(genderF = as.factor(gender)) %>%
@@ -222,11 +228,15 @@ In the following, the mean and standard error or rating has been calculated acro
 ms1 <- d.b2 %>%
   group_by(condition, traitType) %>%
   summarize(mean = mean(rating), ci95 =ci95(rating))
+
+#ms1$condition <- factor(ms1$condition, c("Divergent", "Convergent"))
+#ms1$traitType <- factor(ms1$traitType, c("Masculine", "Feminine"))
 ```
 
-This data has been plotted in the following graph. This is the graph also presented in the original paper.
+In the following, the graph of this data as well as the original graph of the paper has been reported.
 
-#### Plot of average ratings: The original paper graph
+#### Plot of average ratings
+
 
 ```{r ggplot condition}
   ms1 %>% ggplot(., aes(x = condition,y = mean,fill = traitType)) +  
@@ -241,6 +251,16 @@ This data has been plotted in the following graph. This is the graph also presen
   theme(plot.title = element_text(lineheight=.8, face="bold"),legend.title = element_text(colour="Trait Type", size=16, face="bold")) +
   theme_bw() 
 ```
+
+#### The similar plot from the original paper
+This is the graph of the corresponding data published in the original study.
+
+```{r the original graph}
+img <- readPNG("~/Documents/Git/salehiProject/report /originalGraph.png")
+grid.raster(img)
+```
+
+
 
 Data Analyses
 =================================
@@ -316,7 +336,10 @@ Besides looking at the variations of trait types' rating within each condition, 
 
 To test whether the changes in the definition of creativity affect how central participants perceive masculine traits to the creativity, they have conducted one-way ANOVA on masculine traits over condition. The same analyses for the replicated data has been reported in the following.
 
+
+## Replication key test
 #### Confirmatory analysis 3.1: The masculine trait type rating across conditions
+
 
 ```{r Confirmatory analysis 3.1: The masculine trait type rating across conditions}
 #filtering masculine traits data points
@@ -352,11 +375,39 @@ cohen.d(divergentFeminine$rating, convergentFeminine$rating)
 In the following the mixed-model ANOVA analysis has been repeated using a mixed-effect regression model. To do so, I include a random intercept for each subject as well as a random effect of trait type as each subject rated both the trait types:
 
 ```{r lmer basic}
-#mixed-effect model with trait type and condition only
-model1 <- lmer(rating ~ traitType * condition + (1 +traitType | workerid), data=d.b2)
+#random intercept for each traits
+model1.1 <- lmer(rating ~ traitType * condition + (1 | trait), data=d.b2)
 #printing out the table of fixed-effect results
-kable(summary(model1)$coef)
+kable(summary(model1.1)$coef)
+
+
+#random intercept & slope for each traits
+model1.2 <- lmer(rating ~ traitType * condition + (1 + condition| trait), data=d.b2)
+#printing out the table of fixed-effect results
+kable(summary(model1.2)$coef)
+
+#comparing the fit of the models
+lrtest(model1.1 , model1.2)
+
+#random intercept & slope for each trait + random intercept for each subject
+model1.3 <- lmer(rating ~ traitType * condition + (1 + condition | trait) +  (1 | workerid), data=d.b2)
+#printing out the table of fixed-effect results
+kable(summary(model1.3)$coef)
+
+#comparing the fit of the models
+lrtest(model1.2 , model1.3)
+
+#random intercept & slope for each trait + random intercept for each subject
+model1.4 <- lmer(rating ~ traitType * condition + (1 + condition | trait) +  (1 +traitType | workerid), data=d.b2)
+#printing out the table of fixed-effect results
+kable(summary(model1.4)$coef)
+
+#comparing the fit of the models
+lrtest(model1.3 , model1.4)
 ```
+
+I would compare the fit of the above models if they converge and select the one with the best fit of the data. After selecting that best base model, the otehr IV's of interest will be added to that model. For now, before knowing the results of these model comparising, the model with random slope and intercept for trait will be used as a place holder. 
+
 
 I would also like to include eduction, ethnicity, and gender of participants in my analyses to control for their potential effects on how participants evaluate the centrality of a trait to creativity. It might be the case that the definition of creativity is gendered to different extent for female and male participants. Also, level of education might influence how participants perceive creativity. Furthermore, different ethnicity with different cultures might have different definition for creativity. It might not be surprising that participants with collectivist cultures see creativity more aligned with communal i.e feminine traits.
 
@@ -364,16 +415,23 @@ I would also like to include eduction, ethnicity, and gender of participants in 
 
 ```{r Exploratory analyses 2: Gender effect}
 #model with trait type and condition + gender
-model2 <- lmer(rating ~ traitType * condition + gender + (1 +traitType | workerid), data=d.b2)
+model2.1 <- lmer(rating ~ traitType * condition + gender + (1 +condition | trait), data=d.b2)
 #printing out the table of fixed-effect results
-kable(summary(model2)$coef)
+kable(summary(model2.1)$coef)
+
+#model with trait type and condition * gender
+model2.2 <- lmer(rating ~ traitType * condition * gender + (1 +condition | trait), data=d.b2)
+kable(summary(model2.2)$coef)
+
+#comparing the fit of the models
+lrtest(model2.1 , model2.2)
 ```
 
 ### Exploratory analyses 3: Gender & education effects
 
 ```{r Exploratory analyses 3: Gender & education effects}
-#model with trait type and condition + gender + education
-model3 <- lmer(rating ~ traitType * condition + gender + educationL+ (1 + traitType | workerid), data=d.b2)
+#model with trait type and condition  + education
+model3 <- lmer(rating ~ traitType * condition + educationL + (1 +condition | trait), data=d.b2)
 #printing out the table of fixed-effect results
 kable(summary(model3)$coef)
 ```
@@ -381,8 +439,8 @@ kable(summary(model3)$coef)
 ### Exploratory analyses 4: Gender, education & ethnicity effects
 
 ```{r Exploratory analyses 3: Gender, education & ethnicity effects}
-#model with trait type and condition + gender + education + ethnicity
-model4 <- lmer(rating~ traitType * condition + gender + educationL+ ethnicityF+ (1 +traitType | workerid), data=d.b2)
+#model with trait type and condition +  ethnicity
+model4 <- lmer(rating~ traitType * condition + ethnicityF + (1 +condition | trait), data=d.b2)
 #printing out the table of fixed-effect results
 kable(summary(model4)$coef)
 ```
@@ -396,4 +454,4 @@ kable(summary(model4)$coef)
 
 #Contacting the authors
 
-I have contacted the authors asking for the exclusion policy as well as their materials for the first study. Shortly, the authors replied in regard of exclusion policy and generously provided the survey of the first study on the Qualtrics platform. In the original study, there was no participants being excluded.
+I have contacted the authors asking for the exclusion policy as well as their materials for the first study. Shortly, the authors replied in regard of exclusion policy and generously provided the survey of the first study on the Qualtrics platform. In the original study, no participants were excluded.
